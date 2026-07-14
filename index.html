@@ -9,46 +9,47 @@
 
 <title>Katie Joly | Copywriter for Birth Professionals</title>
 
-<meta name="description"
-content="Copywriting and marketing strategy for doulas, midwives, birth educators and maternal health professionals.">
+<meta name="description" content="Strategic copywriting and marketing for doulas, midwives, birth educators and maternal health professionals.">
+
+<meta property="og:title" content="Katie Joly">
+
+<meta property="og:description" content="Helping exceptional birth professionals become impossible to overlook.">
+
+<meta property="og:type" content="website">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@300;400;500;600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-:root{
-
---cream:#faf7f3;
-
---section:#f3ece5;
-
---white:#ffffff;
-
---text:#413934;
-
---light:#7f746d;
-
---accent:#c99a86;
-
---accent-dark:#b88572;
-
---border:#ebe2dc;
-
---max:1240px;
-
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-*{
+:root{
 
-margin:0;
+--cream:#FBF8F5;
 
-padding:0;
+--warm:#F4EEE8;
 
-box-sizing:border-box;
+--white:#FFFFFF;
+
+--text:#403833;
+
+--soft:#766C65;
+
+--accent:#C99581;
+
+--accent-dark:#B27B67;
+
+--line:#E7DED7;
+
+--container:1240px;
 
 }
 
@@ -60,17 +61,15 @@ scroll-behavior:smooth;
 
 body{
 
-font-family:'Source Sans 3',sans-serif;
+font-family:'Manrope',sans-serif;
+
+font-size:18px;
+
+line-height:1.85;
 
 background:var(--cream);
 
 color:var(--text);
-
-font-size:19px;
-
-font-weight:300;
-
-line-height:1.8;
 
 -webkit-font-smoothing:antialiased;
 
@@ -96,15 +95,19 @@ transition:.35s;
 
 .container{
 
-max-width:var(--max);
+max-width:var(--container);
 
 margin:auto;
 
-padding:0 48px;
+padding:0 42px;
 
 }
 
-/* ============================= */
+
+
+/* ==========================
+HEADER
+========================== */
 
 header{
 
@@ -116,13 +119,13 @@ left:0;
 
 width:100%;
 
-padding:42px 0;
+z-index:100;
 
-z-index:50;
+padding:34px 0;
 
 }
 
-header .container{
+.header-inner{
 
 display:flex;
 
@@ -134,7 +137,7 @@ align-items:center;
 
 .logo img{
 
-height:68px;
+height:74px;
 
 width:auto;
 
@@ -158,53 +161,111 @@ letter-spacing:.18em;
 
 text-transform:uppercase;
 
-font-weight:600;
+font-weight:700;
 
 }
 
-.contact-btn{
+.nav-button{
 
-padding:15px 30px;
+padding:15px 28px;
 
-background:var(--accent);
+background:rgba(255,255,255,.85);
 
-color:white;
+backdrop-filter:blur(10px);
 
-border-radius:3px;
-
-}
-
-.contact-btn:hover{
-
-background:var(--accent-dark);
+border-radius:40px;
 
 }
 
-/* ============================= */
+.nav-button:hover{
+
+background:white;
+
+}
+
+
+
+/* ==========================
+HERO
+========================== */
 
 .hero{
 
-padding-top:180px;
+position:relative;
 
-padding-bottom:120px;
+height:100vh;
 
-}
+min-height:860px;
 
-.hero-grid{
+overflow:hidden;
 
-display:grid;
-
-grid-template-columns:48% 52%;
+display:flex;
 
 align-items:center;
 
-gap:80px;
+}
+
+.hero-image{
+
+position:absolute;
+
+inset:0;
+
+z-index:0;
 
 }
 
-.hero-copy{
+.hero-image img{
 
-max-width:520px;
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+object-position:center;
+
+}
+
+.hero-overlay{
+
+position:absolute;
+
+inset:0;
+
+background:linear-gradient(
+90deg,
+rgba(251,248,245,.88) 0%,
+rgba(251,248,245,.76) 38%,
+rgba(251,248,245,.18) 72%,
+rgba(251,248,245,0) 100%
+);
+
+z-index:1;
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:620px;
+
+opacity:0;
+
+transform:translateY(24px);
+
+transition:opacity .9s ease, transform .9s ease;
+
+}
+
+body.loaded .hero-content{
+
+opacity:1;
+
+transform:translateY(0);
 
 }
 
@@ -212,79 +273,69 @@ max-width:520px;
 
 font-size:12px;
 
-letter-spacing:.22em;
+letter-spacing:.28em;
 
 text-transform:uppercase;
 
-font-weight:600;
-
-margin-bottom:14px;
+font-weight:700;
 
 color:var(--accent-dark);
 
-}
-
-.sub{
-
-font-family:'Newsreader',serif;
-
-font-style:italic;
-
-font-size:26px;
-
-margin-bottom:26px;
+margin-bottom:20px;
 
 }
 
 .hero h1{
 
-font-family:'Newsreader',serif;
+font-family:'Cormorant Garamond',serif;
 
-font-size:84px;
+font-size:92px;
 
-line-height:1.02;
+font-weight:500;
 
-font-weight:400;
-
-margin-bottom:34px;
+line-height:.98;
 
 letter-spacing:-.02em;
+
+margin-bottom:32px;
 
 }
 
 .hero p{
 
-color:var(--light);
+font-size:22px;
+
+color:var(--soft);
+
+max-width:520px;
 
 margin-bottom:42px;
 
-max-width:470px;
-
 }
 
-.primary{
+.primary-button{
 
 display:inline-block;
 
-padding:18px 34px;
+padding:18px 38px;
 
 background:var(--accent);
 
 color:white;
 
-text-transform:uppercase;
+border-radius:40px;
 
 font-size:13px;
 
 letter-spacing:.18em;
 
-font-weight:600;
+text-transform:uppercase;
 
-border-radius:3px;
+font-weight:700;
 
 }
 
-.primary:hover{
+.primary-button:hover{
 
 background:var(--accent-dark);
 
@@ -292,61 +343,15 @@ transform:translateY(-2px);
 
 }
 
-.hero-photo{
 
-height:760px;
 
-overflow:hidden;
-
-}
-
-.hero-photo img{
-
-height:100%;
-
-object-fit:cover;
-
-transition:8s;
-
-}
-
-.hero-photo:hover img{
-
-transform:scale(1.03);
-
-}
-
-/* ================================= */
-
-.divider{
-
-background:var(--section);
-
-padding:90px 0;
-
-text-align:center;
-
-}
-
-.divider p{
-
-font-family:'Newsreader',serif;
-
-font-size:40px;
-
-line-height:1.45;
-
-max-width:760px;
-
-margin:auto;
-
-}
-
-/* ================================= */
+/* ==========================
+SECTION DEFAULTS
+========================== */
 
 section{
 
-padding:120px 0;
+padding:140px 0;
 
 }
 
@@ -354,37 +359,99 @@ padding:120px 0;
 
 font-size:12px;
 
-letter-spacing:.2em;
+letter-spacing:.22em;
 
 text-transform:uppercase;
 
-font-weight:600;
-
-margin-bottom:18px;
+font-weight:700;
 
 color:var(--accent-dark);
+
+margin-bottom:18px;
 
 }
 
 h2{
 
-font-family:'Newsreader',serif;
+font-family:'Cormorant Garamond',serif;
 
-font-size:58px;
+font-size:64px;
 
-font-weight:400;
+font-weight:500;
+
+line-height:1.05;
 
 margin-bottom:70px;
 
-line-height:1.1;
+}
 
-} /* ==========================================
-   SERVICES
+p{
+
+color:var(--soft);
+
+}
+
+/* ==========================================
+EDITORIAL INTRO
+========================================== */
+
+.editorial{
+
+background:white;
+
+position:relative;
+
+}
+
+.editorial-grid{
+
+display:grid;
+
+grid-template-columns:220px 1fr;
+
+gap:70px;
+
+align-items:start;
+
+}
+
+.editorial-line{
+
+width:2px;
+
+height:170px;
+
+background:var(--accent);
+
+margin-top:8px;
+
+}
+
+.editorial-copy h2{
+
+margin-bottom:32px;
+
+}
+
+.editorial-copy p{
+
+font-size:22px;
+
+max-width:760px;
+
+margin-bottom:28px;
+
+}
+
+
+
+/* ==========================================
+SERVICES
 ========================================== */
 
 .services{
 
-background:white;
+background:var(--warm);
 
 }
 
@@ -400,39 +467,41 @@ gap:70px;
 
 .service{
 
-padding-right:25px;
+padding-top:24px;
+
+border-top:1px solid var(--line);
 
 }
 
 .service-number{
 
-font-family:'Newsreader',serif;
+font-family:'Cormorant Garamond',serif;
 
-font-size:68px;
+font-size:74px;
 
 color:var(--accent);
 
-margin-bottom:18px;
-
 line-height:1;
+
+margin-bottom:18px;
 
 }
 
 .service h3{
 
-font-family:'Newsreader',serif;
+font-family:'Cormorant Garamond',serif;
 
-font-size:34px;
+font-size:38px;
 
-font-weight:400;
+font-weight:500;
 
 margin-bottom:20px;
+
+color:var(--text);
 
 }
 
 .service p{
-
-color:var(--light);
 
 margin-bottom:26px;
 
@@ -442,19 +511,13 @@ margin-bottom:26px;
 
 font-size:13px;
 
-letter-spacing:.15em;
+font-weight:700;
+
+letter-spacing:.16em;
 
 text-transform:uppercase;
 
-font-weight:600;
-
 color:var(--accent-dark);
-
-}
-
-.service a:hover{
-
-letter-spacing:.18em;
 
 }
 
@@ -466,290 +529,64 @@ ABOUT
 
 .about{
 
-background:var(--cream);
-
-}
-
-.about-wrapper{
-
-max-width:860px;
-
-}
-
-.about-wrapper p{
-
-margin-bottom:28px;
-
-font-size:22px;
-
-color:var(--light);
-
-}
-
-.signature{
-
-font-family:'Newsreader',serif;
-
-font-size:34px;
-
-margin-top:40px;
-
-}
-
-
-
-/* ==========================================
-PROCESS
-========================================== */
-
-.process{
-
 background:white;
 
 }
 
-.timeline{
+.about-grid{
 
 display:grid;
 
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:1fr 320px;
 
-gap:40px;
+gap:120px;
 
-margin-top:40px;
-
-}
-
-.step{
-
-position:relative;
-
-padding-top:20px;
+align-items:start;
 
 }
 
-.step::before{
+.about-copy p{
 
-content:"";
+font-size:21px;
 
-position:absolute;
+margin-bottom:30px;
 
-top:0;
-
-left:0;
-
-width:70px;
-
-height:2px;
-
-background:var(--accent);
+max-width:720px;
 
 }
 
-.step span{
+.about-note{
 
-display:block;
+padding:36px;
 
-font-family:'Newsreader',serif;
+background:var(--warm);
 
-font-size:60px;
-
-color:var(--accent);
-
-margin-bottom:20px;
+border-left:3px solid var(--accent);
 
 }
 
-.step h3{
+.about-note h4{
 
-font-family:'Newsreader',serif;
+font-family:'Cormorant Garamond',serif;
 
 font-size:30px;
 
-font-weight:400;
+margin-bottom:18px;
 
-margin-bottom:16px;
-
-}
-
-.step p{
-
-color:var(--light);
+font-weight:500;
 
 }
 
+.about-note p{
 
-
-/* ==========================================
-QUOTE
-========================================== */
-
-.quote{
-
-padding:150px 0;
-
-background:var(--section);
-
-text-align:center;
-
-}
-
-.quote blockquote{
-
-font-family:'Newsreader',serif;
-
-font-size:46px;
-
-max-width:860px;
-
-margin:auto;
-
-line-height:1.5;
-
-}
-
-.quote cite{
-
-display:block;
-
-margin-top:36px;
-
-font-style:normal;
-
-font-size:13px;
-
-letter-spacing:.18em;
-
-text-transform:uppercase;
-
-font-weight:600;
-
-color:var(--accent-dark);
+font-size:17px;
 
 }
 
 
 
 /* ==========================================
-CTA
-========================================== */
-
-.cta{
-
-background:#d9b8a9;
-
-color:white;
-
-text-align:center;
-
-padding:150px 0;
-
-}
-
-.cta h2{
-
-color:white;
-
-margin-bottom:25px;
-
-}
-
-.cta p{
-
-max-width:700px;
-
-margin:auto;
-
-margin-bottom:40px;
-
-font-size:23px;
-
-color:rgba(255,255,255,.92);
-
-}
-
-.cta .primary{
-
-background:white;
-
-color:var(--accent-dark);
-
-}
-
-.cta .primary:hover{
-
-background:#fafafa;
-
-}
-
-
-
-/* ==========================================
-FOOTER
-========================================== */
-
-footer{
-
-background:white;
-
-padding:70px 0;
-
-border-top:1px solid var(--border);
-
-}
-
-.footer-grid{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-}
-
-.footer-left h3{
-
-font-family:'Newsreader',serif;
-
-font-size:32px;
-
-font-weight:400;
-
-margin-bottom:10px;
-
-}
-
-.footer-left p{
-
-color:var(--light);
-
-}
-
-.footer-right{
-
-display:flex;
-
-gap:28px;
-
-}
-
-.footer-right a{
-
-font-size:13px;
-
-letter-spacing:.18em;
-
-text-transform:uppercase;
-
-font-weight:600;
-
-}
-
-
-
-/* ==========================================
-ANIMATIONS
+SUBTLE FADE
 ========================================== */
 
 .fade{
@@ -758,7 +595,7 @@ opacity:0;
 
 transform:translateY(40px);
 
-transition:1s ease;
+transition:all .9s ease;
 
 }
 
@@ -770,65 +607,417 @@ transform:translateY(0);
 
 }
 
-
-
 /* ==========================================
-RESPONSIVE
+VERSION 3 PREMIUM SECTIONS
 ========================================== */
 
-@media(max-width:1050px){
+/* TESTIMONIAL */
 
-.hero-grid{
+.testimonial{
 
-grid-template-columns:1fr;
+background:#fff;
 
-}
-
-.hero-copy{
-
-order:2;
-
-max-width:100%;
+padding:170px 0;
 
 }
 
-.hero-photo{
+.testimonial-wrap{
 
-order:1;
+max-width:920px;
 
-height:540px;
-
-}
-
-.services-grid{
-
-grid-template-columns:1fr;
-
-gap:60px;
-
-}
-
-.timeline{
-
-grid-template-columns:repeat(2,1fr);
-
-}
-
-.footer-grid{
-
-flex-direction:column;
-
-gap:40px;
+margin:auto;
 
 text-align:center;
 
 }
 
+.testimonial blockquote{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:52px;
+
+line-height:1.45;
+
+font-weight:500;
+
+color:var(--text);
+
+margin-bottom:42px;
+
+}
+
+.testimonial-author{
+
+font-size:13px;
+
+letter-spacing:.22em;
+
+text-transform:uppercase;
+
+font-weight:700;
+
+color:var(--accent-dark);
+
 }
 
 
 
-@media(max-width:768px){
+/* FEATURES */
+
+.features{
+
+background:var(--warm);
+
+}
+
+.features-grid{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:70px;
+
+margin-top:60px;
+
+}
+
+.feature{
+
+padding-bottom:34px;
+
+border-bottom:1px solid var(--line);
+
+}
+
+.feature h3{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:36px;
+
+font-weight:500;
+
+margin-bottom:18px;
+
+}
+
+.feature p{
+
+max-width:470px;
+
+}
+
+
+
+/* FAQ */
+
+.faq{
+
+background:white;
+
+}
+
+.faq-item{
+
+padding:36px 0;
+
+border-bottom:1px solid var(--line);
+
+}
+
+.faq-item h3{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:34px;
+
+font-weight:500;
+
+margin-bottom:16px;
+
+}
+
+.faq-item p{
+
+max-width:760px;
+
+}
+
+
+
+/* CTA */
+
+.cta{
+
+background:linear-gradient(135deg,#C99581,#B27B67);
+
+text-align:center;
+
+padding:180px 0;
+
+}
+
+.cta-inner{
+
+max-width:760px;
+
+margin:auto;
+
+}
+
+.cta h2{
+
+color:white;
+
+margin-bottom:26px;
+
+}
+
+.cta p{
+
+color:rgba(255,255,255,.92);
+
+font-size:22px;
+
+margin-bottom:46px;
+
+}
+
+
+
+/* FOOTER */
+
+.site-footer{
+
+background:var(--cream);
+
+padding:120px 0 60px;
+
+}
+
+.footer-name{
+
+font-size:110px;
+
+margin-bottom:18px;
+
+line-height:.95;
+
+}
+
+.footer-tagline{
+
+max-width:560px;
+
+font-size:20px;
+
+}
+
+.footer-divider{
+
+margin:70px 0 45px;
+
+height:1px;
+
+background:var(--line);
+
+}
+
+.footer-bottom{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+flex-wrap:wrap;
+
+gap:30px;
+
+}
+
+.footer-links,
+
+.footer-social{
+
+display:flex;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+}
+
+.footer-links a,
+
+.footer-social a{
+
+font-size:12px;
+
+font-weight:700;
+
+letter-spacing:.18em;
+
+text-transform:uppercase;
+
+}
+
+.footer-copy{
+
+margin-top:55px;
+
+font-size:14px;
+
+color:var(--soft);
+
+}
+
+
+
+/* PREMIUM HOVERS */
+
+.service,
+
+.feature,
+
+.faq-item{
+
+transition:.35s ease;
+
+}
+
+.service:hover{
+
+transform:translateY(-8px);
+
+}
+
+.feature:hover{
+
+transform:translateY(-6px);
+
+}
+
+.primary-button{
+
+transition:.35s ease;
+
+box-shadow:0 14px 30px rgba(0,0,0,.08);
+
+}
+
+.primary-button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 24px 45px rgba(0,0,0,.12);
+
+}
+
+nav a{
+
+position:relative;
+
+}
+
+nav a:not(.nav-button)::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-6px;
+
+width:0;
+
+height:2px;
+
+background:var(--accent);
+
+transition:.3s;
+
+}
+
+nav a:not(.nav-button):hover::after{
+
+width:100%;
+
+}
+
+nav a.active:not(.nav-button)::after{
+
+width:100%;
+
+}
+
+
+
+/* RESPONSIVE */
+
+@media (max-width:1100px){
+
+.hero{
+
+min-height:auto;
+
+padding:170px 0 110px;
+
+}
+
+.hero h1{
+
+font-size:68px;
+
+}
+
+.editorial-grid,
+
+.about-grid{
+
+grid-template-columns:1fr;
+
+gap:50px;
+
+}
+
+.editorial-line{
+
+display:none;
+
+}
+
+.services-grid,
+
+.features-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.footer-name{
+
+font-size:76px;
+
+}
+
+.footer-bottom{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+}
+
+
+
+@media (max-width:768px){
 
 .container{
 
@@ -836,7 +1025,19 @@ padding:0 24px;
 
 }
 
-nav a:not(.contact-btn){
+header{
+
+padding:22px 0;
+
+}
+
+.logo img{
+
+height:56px;
+
+}
+
+nav a:not(.nav-button){
 
 display:none;
 
@@ -844,41 +1045,87 @@ display:none;
 
 .hero{
 
-padding-top:120px;
+height:auto;
+
+min-height:auto;
+
+padding-top:130px;
+
+padding-bottom:90px;
+
+}
+
+.hero-overlay{
+
+background:rgba(251,248,245,.72);
 
 }
 
 .hero h1{
 
-font-size:56px;
+font-size:52px;
 
 }
 
-.hero-photo{
+.hero p{
 
-height:420px;
+font-size:19px;
 
 }
 
-.divider p{
+section{
 
-font-size:30px;
+padding:90px 0;
 
 }
 
 h2{
 
-font-size:44px;
+font-size:46px;
+
+margin-bottom:42px;
 
 }
 
-.timeline{
+.editorial-copy p,
 
-grid-template-columns:1fr;
+.about-copy p{
+
+font-size:19px;
 
 }
 
-.primary{
+.testimonial blockquote{
+
+font-size:34px;
+
+}
+
+.feature h3,
+
+.service h3,
+
+.faq-item h3{
+
+font-size:30px;
+
+}
+
+.footer-name{
+
+font-size:58px;
+
+}
+
+.footer-links,
+
+.footer-social{
+
+gap:18px;
+
+}
+
+.primary-button{
 
 width:100%;
 
@@ -888,132 +1135,151 @@ text-align:center;
 
 }
 
-</style> <body>
+</style>
+
+</head>
+
+<body>
+
+
 
 <header>
 
-    <div class="container">
+<div class="container">
 
-        <div class="logo">
+<div class="header-inner">
 
-            <!-- Replace with your logo -->
-            <img src="images/logo.png" alt="Katie Joly">
+<div class="logo">
 
-        </div>
+<!-- Replace with your logo -->
+<img src="images/logo.png" alt="Katie Joly">
 
-        <nav>
+</div>
 
-            <a href="#about">About</a>
+<nav>
 
-            <a href="#services">Services</a>
+<a href="#about">About</a>
 
-            <a href="#process">Process</a>
+<a href="#services">Services</a>
 
-            <a href="#contact">Contact</a>
+<a href="#process">Process</a>
 
-            <a class="contact-btn" href="mailto:kitjoly@gmail.com">
+<a href="#contact">Contact</a>
 
-                Let's Work Together
+<a class="nav-button" href="mailto:kitjoly@gmail.com">
 
-            </a>
+Let's Talk
 
-        </nav>
+</a>
 
-    </div>
+</nav>
+
+</div>
+
+</div>
 
 </header>
 
 
 
-<!-- HERO -->
-
 <section class="hero">
+
+<div class="hero-image">
+
+<!-- Replace hero.jpg with the panoramic image we created -->
+<img src="images/hero.jpg" alt="Katie Joly working at her desk">
+
+</div>
+
+<div class="hero-overlay"></div>
 
 <div class="container">
 
-<div class="hero-grid">
-
-<div class="hero-copy fade">
+<div class="hero-content">
 
 <p class="eyebrow">
 
-COPYWRITER & MARKETING STRATEGIST
-
-</p>
-
-<p class="sub">
-
-for birth professionals
+COPYWRITER FOR BIRTH PROFESSIONALS
 
 </p>
 
 <h1>
 
-Words that connect.<br>
-
-Care that shows.
+Helping exceptional birth professionals become impossible to overlook.
 
 </h1>
 
 <p>
 
-You already provide exceptional care.
-
-Your website should communicate it just as beautifully.
-
-I help doulas, midwives, lactation consultants and birth educators attract more of the families they're meant to serve through thoughtful messaging and intentional strategy.
+Your work changes lives. Your website should communicate that level of care with clarity, warmth, and confidence—so the right families know they've found exactly who they're looking for.
 
 </p>
 
-<a class="primary" href="mailto:kitjoly@gmail.com">
+<a class="primary-button"
 
-Let's Tell Your Story
+href="mailto:kitjoly@gmail.com?subject=Let's%20Work%20Together">
+
+Let's Build Your Brand
 
 </a>
 
 </div>
 
-
-
-<div class="hero-photo fade">
-
-<img src="images/hero.jpg"
-
-alt="Katie Joly">
-
-</div>
-
-</div>
-
 </div>
 
 </section>
 
 
 
-<!-- DIVIDER -->
-
-<section class="divider">
+<section class="editorial">
 
 <div class="container">
 
+<div class="editorial-grid fade">
+
+<div class="editorial-line"></div>
+
+<div class="editorial-copy">
+
+<p class="section-label">
+
+WELCOME
+
+</p>
+
+<h2>
+
+The best birth professionals are often the hardest to find.
+
+</h2>
+
 <p>
 
-Thoughtful copy.
+Not because they aren't exceptional—but because their websites don't reflect the depth of care they provide.
 
-Ethical marketing.
+</p>
 
-More visibility for the work that matters most.
+<p>
+
+Your messaging should build trust before a consultation is ever booked. It should answer questions, calm fears, and help families feel confident that they're exactly where they need to be.
+
+</p>
+
+<p>
+
+That's what thoughtful copy does.
 
 </p>
 
 </div>
 
+</div>
+
+</div>
+
 </section>
 
 
-
-<!-- SERVICES -->
 
 <section id="services" class="services">
 
@@ -1027,15 +1293,11 @@ SERVICES
 
 <h2>
 
-How I Can Help
+How we can work together.
 
 </h2>
 
-
-
 <div class="services-grid">
-
-
 
 <div class="service fade">
 
@@ -1047,13 +1309,13 @@ How I Can Help
 
 <h3>
 
-Website Copywriting
+Website Copy
 
 </h3>
 
 <p>
 
-Warm, strategic copy that helps potential clients immediately understand your value and trust you before they ever schedule a consultation.
+Strategic copy that transforms visitors into inquiries by making your expertise feel clear, approachable, and trustworthy.
 
 </p>
 
@@ -1064,8 +1326,6 @@ Learn More →
 </a>
 
 </div>
-
-
 
 <div class="service fade">
 
@@ -1083,7 +1343,7 @@ Marketing Strategy
 
 <p>
 
-Thoughtful marketing guidance designed specifically for birth professionals who want sustainable growth without feeling salesy.
+A thoughtful roadmap to strengthen your messaging, improve your online presence, and attract more of your ideal clients.
 
 </p>
 
@@ -1094,8 +1354,6 @@ Learn More →
 </a>
 
 </div>
-
-
 
 <div class="service fade">
 
@@ -1113,7 +1371,7 @@ Messaging Intensive
 
 <p>
 
-Clarify exactly what makes your practice different so your dream clients instantly recognize that they're in the right place.
+Clarify exactly what makes your practice different so every page of your website communicates confidence and care.
 
 </p>
 
@@ -1125,65 +1383,89 @@ Learn More →
 
 </div>
 
-
-
 </div>
 
 </div>
 
 </section>
 
-
-
 <!-- ABOUT -->
 
 <section id="about" class="about">
 
-<div class="container">
+    <div class="container">
 
-<div class="about-wrapper fade">
+        <div class="about-grid">
 
-<p class="section-label">
+            <div class="about-copy fade">
 
-ABOUT
+                <p class="section-label">
 
-</p>
+                    ABOUT
 
-<h2>
+                </p>
 
-Hi, I'm Katie.
+                <h2>
 
-</h2>
+                    Hi, I'm Katie.
 
-<p>
+                </h2>
 
-I believe the people changing birth experiences deserve websites that reflect the incredible care they provide.
+                <p>
 
-</p>
+                    I'm a copywriter who believes exceptional birth professionals deserve websites that communicate the same warmth, confidence, and expertise they bring to every family they serve.
 
-<p>
+                </p>
 
-Too often, amazing birth professionals blend into the crowd simply because their messaging doesn't fully capture the warmth, confidence, and expertise they bring to every family.
+                <p>
 
-</p>
+                    I've seen incredibly talented doulas, midwives, educators, and maternal health professionals struggle to stand out online—not because they aren't amazing, but because their messaging doesn't fully reflect the experience they provide.
 
-<p>
+                </p>
 
-That's where I come in.
+                <p>
 
-Together we'll create clear, compassionate messaging that builds trust, strengthens your brand, and helps more families find the support they're looking for.
+                    My job is to bridge that gap.
 
-</p>
+                </p>
 
-<div class="signature">
+                <p>
 
-Katie Joly
+                    Together we'll create messaging that feels genuine, builds trust, and helps the right families immediately recognize that they're exactly where they belong.
 
-</div>
+                </p>
 
-</div>
+            </div>
 
-</div>
+            <aside class="about-note fade">
+
+                <h4>
+
+                    My philosophy
+
+                </h4>
+
+                <p>
+
+                    Great copy isn't about sounding clever.
+
+                    It's about making people feel understood.
+
+                </p>
+
+                <br>
+
+                <p>
+
+                    When your audience feels seen, trust follows naturally.
+
+                </p>
+
+            </aside>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -1191,154 +1473,91 @@ Katie Joly
 
 <!-- PROCESS -->
 
-<section id="process" class="process">
-
-<div class="container">
-
-<p class="section-label">
-
-PROCESS
-
-</p>
-
-<h2>
-
-A Simple Process Designed Around You
-
-</h2>
-
-<div class="timeline">
-
-<div class="step fade">
-
-<span>01</span>
-
-<h3>
-
-Discover
-
-</h3>
-
-<p>
-
-We'll dive into your business, audience and goals.
-
-</p>
-
-</div>
-
-<div class="step fade">
-
-<span>02</span>
-
-<h3>
-
-Strategize
-
-</h3>
-
-<p>
-
-We'll develop messaging that reflects your values and connects with the families you serve.
-
-</p>
-
-</div>
-
-<div class="step fade">
-
-<span>03</span>
-
-<h3>
-
-Write
-
-</h3>
-
-<p>
-
-I'll transform everything into polished, conversion-focused copy.
-
-</p>
-
-</div>
-
-<div class="step fade">
-
-<span>04</span>
-
-<h3>
-
-Launch
-
-</h3>
-
-<p>
-
-Publish your new messaging with confidence and start attracting more aligned clients.
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section> 
-  <!-- TESTIMONIAL -->
-
-<section class="quote">
+<section id="process" class="editorial">
 
     <div class="container">
 
-        <blockquote>
+        <p class="section-label">
 
-            "Katie has a gift for taking scattered thoughts and transforming them into words that truly reflect my business. She helped me sound like myself—only clearer, warmer, and more confident."
-
-        </blockquote>
-
-        <cite>
-
-            — CLIENT TESTIMONIAL COMING SOON
-
-        </cite>
-
-    </div>
-
-</section>
-
-
-
-<!-- FINAL CALL TO ACTION -->
-
-<section id="contact" class="cta">
-
-    <div class="container fade">
-
-        <p class="section-label" style="color:white;opacity:.85;">
-
-            READY TO GROW?
+            PROCESS
 
         </p>
 
         <h2>
 
-            Let's create a website that reflects the care you already provide.
+            A simple process designed to make your life easier.
 
         </h2>
 
-        <p>
+        <div class="services-grid">
 
-            Whether you're launching a brand-new practice or refreshing an existing website, I'll help you communicate your value with thoughtful messaging that attracts the right families.
+            <div class="service fade">
 
-        </p>
+                <div class="service-number">
 
-        <a class="primary" href="mailto:kitjoly@gmail.com?subject=Let's%20Work%20Together">
+                    01
 
-            LET'S WORK TOGETHER
+                </div>
 
-        </a>
+                <h3>
+
+                    Discover
+
+                </h3>
+
+                <p>
+
+                    We begin with a collaborative strategy session to understand your practice, your audience, and what makes your approach unique.
+
+                </p>
+
+            </div>
+
+            <div class="service fade">
+
+                <div class="service-number">
+
+                    02
+
+                </div>
+
+                <h3>
+
+                    Write
+
+                </h3>
+
+                <p>
+
+                    I transform your expertise into clear, compassionate messaging that reflects your voice and builds immediate trust.
+
+                </p>
+
+            </div>
+
+            <div class="service fade">
+
+                <div class="service-number">
+
+                    03
+
+                </div>
+
+                <h3>
+
+                    Launch
+
+                </h3>
+
+                <p>
+
+                    You'll receive polished copy that's ready for your website, helping you confidently welcome the families you're meant to serve.
+
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -1346,39 +1565,391 @@ Publish your new messaging with confidence and start attracting more aligned cli
 
 
 
-<!-- FOOTER -->
+<!-- FEATURE SECTION -->
 
-<footer>
+<section class="about">
 
     <div class="container">
 
-        <div class="footer-grid">
+        <div class="editorial-grid fade">
 
-            <div class="footer-left">
+            <div class="editorial-line"></div>
 
-                <h3>
+            <div class="editorial-copy">
 
-                    Katie Joly
+                <p class="section-label">
 
-                </h3>
+                    WHY IT MATTERS
+
+                </p>
+
+                <h2>
+
+                    Your website is often the first conversation you have with a future client.
+
+                </h2>
 
                 <p>
 
-                    Copywriter & Marketing Strategist
+                    Before someone books a consultation, they want reassurance.
+
+                    They want to know they'll be cared for.
+
+                    They want to feel understood.
 
                 </p>
 
                 <p>
 
-                    Serving birth professionals nationwide.
+                    Beautiful design gets attention.
+
+                    Thoughtful messaging earns trust.
+
+                </p>
+
+                <p>
+
+                    When those two things work together, your website becomes one of the strongest tools your business has.
 
                 </p>
 
             </div>
 
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================
+TESTIMONIAL
+========================================== -->
+
+<section class="testimonial">
+
+<div class="container">
+
+<div class="testimonial-wrap fade">
+
+<p class="section-label">
+
+KIND WORDS
+
+</p>
+
+<blockquote>
+
+"Working with Katie completely changed the way I talk about my business.
+
+Instead of trying to convince people to hire me, my website finally feels like me—and families are reaching out already feeling connected."
+
+</blockquote>
+
+<div class="testimonial-author">
+
+<p>
+
+Birth Doula
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 
-            <div class="footer-right">
+
+<!-- ==========================================
+FEATURES
+========================================== -->
+
+<section class="features">
+
+<div class="container">
+
+<p class="section-label">
+
+WHAT YOU CAN EXPECT
+
+</p>
+
+<h2>
+
+More than beautiful words.
+
+</h2>
+
+
+
+<div class="features-grid">
+
+
+
+<div class="feature fade">
+
+<h3>
+
+Clear Positioning
+
+</h3>
+
+<p>
+
+Stand apart from every other birth professional in your area by communicating exactly what makes your approach different.
+
+</p>
+
+</div>
+
+
+
+<div class="feature fade">
+
+<h3>
+
+Authentic Voice
+
+</h3>
+
+<p>
+
+Copy that sounds like you—not like a marketing agency wrote it.
+
+</p>
+
+</div>
+
+
+
+<div class="feature fade">
+
+<h3>
+
+Higher Conversion
+
+</h3>
+
+<p>
+
+Help more website visitors become consultation calls through messaging that builds immediate trust.
+
+</p>
+
+</div>
+
+
+
+<div class="feature fade">
+
+<h3>
+
+Long-Term Strategy
+
+</h3>
+
+<p>
+
+Every page works together to support your business for years—not just today's launch.
+
+</p>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==========================================
+FAQ
+========================================== -->
+
+<section class="faq">
+
+<div class="container">
+
+<p class="section-label">
+
+QUESTIONS
+
+</p>
+
+<h2>
+
+Frequently Asked Questions
+
+</h2>
+
+
+
+<div class="faq-item fade">
+
+<h3>
+
+Do you only work with birth professionals?
+
+</h3>
+
+<p>
+
+That's my specialty because I genuinely love this work.
+
+Understanding your audience means I can write messaging that feels natural instead of generic.
+
+</p>
+
+</div>
+
+
+
+<div class="faq-item fade">
+
+<h3>
+
+Will my copy sound like me?
+
+</h3>
+
+<p>
+
+Absolutely.
+
+My goal isn't to replace your voice.
+
+It's to help you communicate it more clearly and confidently.
+
+</p>
+
+</div>
+
+
+
+<div class="faq-item fade">
+
+<h3>
+
+What if I already have a website?
+
+</h3>
+
+<p>
+
+Perfect.
+
+Many of my projects involve refreshing existing websites rather than starting from scratch.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==========================================
+FINAL CTA
+========================================== -->
+
+<section id="contact" class="cta">
+
+<div class="container">
+
+<div class="cta-inner fade">
+
+<p class="section-label"
+
+style="color:rgba(255,255,255,.85);">
+
+READY WHEN YOU ARE
+
+</p>
+
+<h2>
+
+Let's create a website that feels as thoughtful as the care you provide.
+
+</h2>
+
+<p>
+
+You don't need louder marketing.
+
+You need clearer messaging.
+
+Together we'll create a website that feels warm, trustworthy, and unmistakably you.
+
+</p>
+
+<a
+
+class="primary-button"
+
+href="mailto:kitjoly@gmail.com?subject=Let's%20Work%20Together">
+
+Let's Work Together
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ==========================================
+LUXURY FOOTER
+========================================== -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-top">
+
+            <div class="footer-brand fade">
+
+                <p class="section-label">
+
+                    THANK YOU FOR VISITING
+
+                </p>
+
+                <h2 class="footer-name">
+
+                    Katie Joly
+
+                </h2>
+
+                <p class="footer-tagline">
+
+                    Thoughtful copywriting and marketing strategy for birth professionals who want their online presence to feel as warm and trustworthy as the care they provide.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-divider"></div>
+
+
+
+        <div class="footer-bottom">
+
+            <div class="footer-links">
 
                 <a href="#about">
 
@@ -1406,6 +1977,32 @@ Publish your new messaging with confidence and start attracting more aligned cli
 
             </div>
 
+
+
+            <div class="footer-social">
+
+                <a href="#">
+
+                    Instagram
+
+                </a>
+
+                <a href="#">
+
+                    LinkedIn
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-copy">
+
+            © 2026 Katie Joly • All Rights Reserved
+
         </div>
 
     </div>
@@ -1416,19 +2013,25 @@ Publish your new messaging with confidence and start attracting more aligned cli
 
 <script>
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+/* ===========================
+   Smooth Scrolling
+=========================== */
 
-anchor.addEventListener('click',function(e){
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+
+link.addEventListener('click',e=>{
 
 e.preventDefault();
 
-const target=document.querySelector(this.getAttribute('href'));
+const target=document.querySelector(link.getAttribute('href'));
 
 if(target){
 
 target.scrollIntoView({
 
-behavior:'smooth'
+behavior:'smooth',
+
+block:'start'
 
 });
 
@@ -1440,7 +2043,13 @@ behavior:'smooth'
 
 
 
-const observer=new IntersectionObserver(entries=>{
+/* ===========================
+   Scroll Reveal Animation
+=========================== */
+
+const reveals=document.querySelectorAll('.fade');
+
+const revealObserver=new IntersectionObserver((entries)=>{
 
 entries.forEach(entry=>{
 
@@ -1448,55 +2057,57 @@ if(entry.isIntersecting){
 
 entry.target.classList.add('visible');
 
+revealObserver.unobserve(entry.target);
+
 }
 
 });
 
 },{
 
-threshold:.15
+threshold:.15,
+
+rootMargin:"0px 0px -80px 0px"
 
 });
 
+reveals.forEach(item=>revealObserver.observe(item));
 
 
-document.querySelectorAll('.fade').forEach(item=>{
 
-observer.observe(item);
-
-});
-
-
+/* ===========================
+   Header Animation
+=========================== */
 
 const header=document.querySelector("header");
 
-
-
 window.addEventListener("scroll",()=>{
 
-if(window.scrollY>50){
+if(window.scrollY>40){
+
+header.style.background="rgba(251,248,245,.94)";
+
+header.style.backdropFilter="blur(18px)";
+
+header.style.boxShadow="0 12px 40px rgba(0,0,0,.06)";
+
+header.style.padding="18px 0";
 
 header.style.position="fixed";
-
-header.style.background="rgba(250,247,243,.95)";
-
-header.style.backdropFilter="blur(12px)";
-
-header.style.boxShadow="0 10px 35px rgba(0,0,0,.05)";
-
-header.style.padding="22px 0";
 
 }
 
 else{
 
-header.style.position="absolute";
-
 header.style.background="transparent";
 
 header.style.boxShadow="none";
 
-header.style.padding="42px 0";
+header.style.backdropFilter="blur(0px)";
+
+header.style.padding="34px 0";
+
+header.style.position="absolute";
 
 }
 
@@ -1504,13 +2115,115 @@ header.style.padding="42px 0";
 
 
 
-const heroImage=document.querySelector(".hero-photo img");
+/* ===========================
+   Hero Parallax
+=========================== */
+
+const hero=document.querySelector(".hero-image img");
+
+window.addEventListener("scroll",()=>{
+
+if(hero){
+
+const y=window.pageYOffset;
+
+hero.style.transform=`translateY(${y*0.18}px) scale(1.05)`;
+
+}
+
+});
 
 
+
+/* ===========================
+   Button Hover Lift
+=========================== */
+
+document.querySelectorAll(".primary-button").forEach(button=>{
+
+button.addEventListener("mouseenter",()=>{
+
+button.style.transform="translateY(-3px)";
+
+});
+
+button.addEventListener("mouseleave",()=>{
+
+button.style.transform="translateY(0px)";
+
+});
+
+});
+
+
+
+/* ===========================
+   Accessibility
+=========================== */
+
+if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+
+document.querySelectorAll("*").forEach(el=>{
+
+el.style.scrollBehavior="auto";
+
+el.style.transition="none";
+
+el.style.animation="none";
+
+});
+
+}
+
+
+
+/* ===========================
+   Active Navigation
+=========================== */
+
+const sections=document.querySelectorAll("section[id]");
+
+const navLinks=document.querySelectorAll("nav a");
+
+window.addEventListener("scroll",()=>{
+
+let current="";
+
+sections.forEach(section=>{
+
+const top=section.offsetTop-140;
+
+if(pageYOffset>=top){
+
+current=section.getAttribute("id");
+
+}
+
+});
+
+navLinks.forEach(link=>{
+
+link.classList.remove("active");
+
+if(link.getAttribute("href")==="#"+current){
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+
+
+/* ===========================
+   Hero Fade-In
+=========================== */
 
 window.addEventListener("load",()=>{
 
-heroImage.style.transform="scale(1.03)";
+document.body.classList.add("loaded");
 
 });
 
