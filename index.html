@@ -98,6 +98,35 @@
             align-items: center;
         }
 
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            border: 1.5px dashed rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            letter-spacing: 0.02em;
+            color: rgba(255, 255, 255, 0.75);
+            text-align: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .logo-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .logo {
             font-family: Georgia, serif;
             font-size: 1.4rem;
@@ -251,6 +280,35 @@
 
         .about-section {
             background-color: var(--light-gray);
+        }
+
+        .profile-photo-wrapper {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            border: 4px solid var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #EAE4DC;
+        }
+
+        .profile-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .profile-photo-placeholder {
+            font-size: 0.75rem;
+            color: var(--light-text);
+            text-align: center;
+            padding: 0 0.5rem;
+            line-height: 1.4;
         }
 
         .katie-intro {
@@ -479,9 +537,15 @@
 
     <header>
         <div class="header-content">
-            <div class="logo">
-                Katie Joly
-                <span>Birth Services Copywriter</span>
+            <div class="logo-group">
+                <div class="logo-mark">
+                    <!-- Replace this div's content with: <img src="images/logo.png" alt="Katie Joly logo"> -->
+                    LOGO
+                </div>
+                <div class="logo">
+                    Katie Joly
+                    <span>Birth Services Copywriter</span>
+                </div>
             </div>
             <nav>
                 <a href="#about">About Me</a>
@@ -527,6 +591,10 @@
         <!-- About Katie Section -->
         <section class="about-section" id="about">
             <div class="container">
+                <div class="profile-photo-wrapper">
+                    <!-- Replace this div's content with: <img src="images/katie-headshot.jpg" alt="Katie Joly"> -->
+                    <div class="profile-photo-placeholder">Your photo here</div>
+                </div>
                 <div class="katie-intro">
                     <h1>Hi, I'm Katie.</h1>
                     <div class="katie-intro-text">
