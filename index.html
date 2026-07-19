@@ -102,6 +102,14 @@ p{color:var(--soft);}
 .service p{margin-bottom:26px;}
 .service a{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-dark);}
 
+/* REWRITES (case study cards) */
+.rewrites-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:70px;margin-top:20px;}
+.rewrite-card{padding-top:24px;border-top:1px solid var(--line);}
+.rewrite-tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--accent-dark);margin-bottom:16px;}
+.rewrite-card h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;margin-bottom:16px;color:var(--text);}
+.rewrite-card p{margin-bottom:26px;}
+.rewrite-card a.primary-button{padding:15px 30px;font-size:12px;}
+
 /* ABOUT */
 .about{background:white;}
 .about-grid{display:grid;grid-template-columns:1fr 320px;gap:120px;align-items:start;}
@@ -166,7 +174,7 @@ nav a.active:not(.nav-button)::after{width:100%;}
 .hero h1{font-size:52px;}
 .editorial-grid,.about-grid{grid-template-columns:1fr;gap:50px;}
 .editorial-line{display:none;}
-.services-grid,.features-grid{grid-template-columns:1fr;}
+.services-grid,.features-grid,.rewrites-grid{grid-template-columns:1fr;}
 .footer-name{font-size:76px;}
 .footer-bottom{flex-direction:column;align-items:flex-start;}
 }
@@ -203,7 +211,7 @@ h2{font-size:46px;margin-bottom:42px;}
 <nav>
 <a href="#about">About</a>
 <a href="#services">Services</a>
-<a href="#case-study">Behind a Rewrite</a>
+<a href="#case-study">Portfolio</a>
 <a href="#process">Process</a>
 <a href="#contact">Contact</a>
 <a class="nav-button" href="mailto:kitjoly@gmail.com">Start the conversation</a>
@@ -277,14 +285,20 @@ h2{font-size:46px;margin-bottom:42px;}
 <!-- CASE STUDY -->
 <section id="case-study" class="editorial">
 <div class="container">
-<div class="editorial-grid fade">
-<div class="editorial-line"></div>
-<div class="editorial-copy">
-<p class="section-label">BEHIND A REWRITE</p>
-<h2>See how thoughtful copy changes the experience.</h2>
-<p style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--accent-dark);margin-bottom:24px;">Website Audit • Information Architecture • Website Copy</p>
+<p class="section-label">PORTFOLIO</p>
+<h2>See how thoughtful copy and design change the experience.</h2>
+<div class="rewrites-grid">
+<div class="rewrite-card fade">
+<p class="rewrite-tag">Website Audit • Information Architecture • Website Copy</p>
+<h3>A postnatal doula's website, reorganized</h3>
 <p>This project shows how thoughtful copy can improve clarity without changing what makes a business feel human. I reorganized a postnatal doula's website so exhausted new parents could immediately understand what she offered while preserving the warmth and personality that made her the right choice.</p>
 <a class="primary-button" href="case-studies/postnatal-doula.html">See the Rewrite →</a>
+</div>
+<div class="rewrite-card fade">
+<p class="rewrite-tag">Wix Redesign • Visual Design • Brand Voice</p>
+<h3>A pelvic health practice, rebuilt</h3>
+<p>A cluttered, dated practice website gets a full visual and written overhaul — cleaner structure, a calmer palette, and copy that makes a new patient trust what they're looking at in the first few seconds.</p>
+<a class="primary-button" href="case-studies/pelvic-floor-redesign.html">See the Redesign →</a>
 </div>
 </div>
 </div>
