@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Pelvic Floor Practice Redesign — Katie Joly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blush:#E9D9CF;
+    --blush-deep:#DEC6B8;
+    --ink:#2B2E4A;
+    --ink-soft:#4A4E6E;
+    --sage:#7C8B6F;
+    --sage-deep:#5F6E52;
+    --gold:#C9A066;
+    --paper:#FBF7F3;
+    --line:rgba(43,46,74,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+
+  .hero{
+    background:var(--blush);
+    padding:6rem 6vw 5rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-10%;
+    top:-20%;
+    width:60%;
+    height:140%;
+    background:radial-gradient(circle at center, var(--blush-deep) 0%, transparent 70%);
+    opacity:0.6;
+  }
+  .eyebrow{
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--sage-deep);
+    font-weight:600;
+    margin-bottom:1.4rem;
+    position:relative;
+    z-index:1;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem, 5vw, 3.6rem);
+    max-width:18ch;
+    line-height:1.08;
+    position:relative;
+    z-index:1;
+  }
+  .hero h1 em{font-style:italic;color:var(--sage-deep);}
+  .hero p.sub{
+    max-width:48ch;
+    margin-top:1.6rem;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    position:relative;
+    z-index:1;
+  }
+  .hero-meta{
+    display:flex;
+    gap:2.4rem;
+    margin-top:3rem;
+    flex-wrap:wrap;
+    position:relative;
+    z-index:1;
+  }
+  .hero-meta div{font-size:0.9rem;max-width:32ch;}
+  .hero-meta span{
+    display:block;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--sage-deep);
+    margin-bottom:0.3rem;
+    font-weight:600;
+  }
+  .disclosure{
+    display:inline-block;
+    margin-top:3rem;
+    padding:0.7rem 1.1rem;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:3px;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    max-width:60ch;
+    position:relative;
+    z-index:1;
+  }
+
+  section{
+    padding:5rem 6vw;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .section-head{display:flex;align-items:baseline;gap:1.2rem;margin-bottom:2.6rem;}
+  .section-head .num{font-family:'Fraunces', serif;font-style:italic;color:var(--gold);font-size:1rem;}
+  .section-head h2{font-size:1.6rem;}
+  .lead{max-width:62ch;color:var(--ink-soft);margin-bottom:2.6rem;}
+
+  .diagnosis{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px,1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .diagnosis div{background:var(--paper);padding:1.6rem 1.4rem;}
+  .diagnosis h3{font-size:0.95rem;font-family:'Work Sans', sans-serif;font-weight:600;margin-bottom:0.5rem;}
+  .diagnosis p{font-size:0.88rem;color:var(--ink-soft);margin:0;}
+
+  /* ---------- Visual before/after mockups ---------- */
+  .compare-wrap{background:var(--ink);color:var(--paper);}
+  .compare-wrap .section-head h2{color:var(--paper);}
+  .compare-wrap .section-head .num{color:var(--gold);}
+  .compare-wrap .lead{color:rgba(251,247,243,0.65);}
+
+  .mock-compare{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:0;
+    align-items:start;
+  }
+  .mock-col{padding:1rem;}
+  .mock-label{
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-weight:600;
+    margin-bottom:1rem;
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+  .mock-col.before .mock-label{color:#C99A8E;}
+  .mock-col.after .mock-label{color:#A9BC9A;}
+  .mock-label .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  .browser-frame{
+    background:#1c1e30;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 20px 50px rgba(0,0,0,0.35);
+  }
+  .browser-bar{
+    background:#2b2d47;
+    padding:9px 12px;
+    display:flex;
+    gap:6px;
+  }
+  .browser-bar span{width:9px;height:9px;border-radius:50%;background:#565a80;display:block;}
+  .browser-viewport{
+    height:400px;
+    overflow:hidden;
+    background:#fff;
+    position:relative;
+  }
+  .scaled-page{
+    width:1100px;
+    transform:scale(0.4);
+    transform-origin:top left;
+  }
+
+  /* ===== BEFORE mock page styling (intentionally dated/cluttered) ===== */
+  .mock-before-page{font-family:Arial, Helvetica, sans-serif;color:#222;}
+  .mb-topbar{background:#003366;color:#fff;font-size:11px;padding:4px 14px;text-align:right;}
+  .mb-nav{background:#00A6A6;padding:10px 14px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+  .mb-nav .mb-logo{font-family:'Comic Neue',cursive;font-size:22px;color:#fff;font-weight:700;margin-right:20px;}
+  .mb-nav a{color:#fff;font-size:13px;font-weight:700;text-decoration:underline;}
+  .mb-hero{background:linear-gradient(#FFD23F,#FF9F1C);padding:26px 14px;text-align:center;}
+  .mb-hero h1{font-family:'Comic Neue',cursive;font-size:34px;color:#7A2E00;margin:0 0 10px;text-shadow:2px 2px 0 #fff;}
+  .mb-hero p{font-family:Georgia, serif;font-size:15px;color:#5c2c00;max-width:520px;margin:0 auto 14px;}
+  .mb-btn{display:inline-block;background:#FF3B30;color:#fff;border:3px solid #7A0000;padding:10px 22px;font-weight:700;font-size:14px;border-radius:3px;text-transform:uppercase;}
+  .mb-banner{background:#FFF200;color:#B00000;text-align:center;font-weight:700;font-size:13px;padding:6px;font-family:Arial,sans-serif;letter-spacing:.02em;}
+  .mb-body{padding:20px 14px;display:grid;grid-template-columns:2fr 1fr;gap:20px;}
+  .mb-body h2{font-family:Georgia,serif;font-size:20px;color:#003366;margin:0 0 8px;}
+  .mb-body p{font-size:13px;line-height:1.5;color:#333;margin:0 0 10px;}
+  .mb-sidebar{background:#EFEFEF;border:2px dashed #999;padding:12px;font-size:12px;}
+  .mb-sidebar h3{font-size:14px;margin:0 0 8px;color:#003366;}
+  .mb-sidebar ul{margin:0;padding-left:16px;}
+  .mb-sidebar li{margin-bottom:6px;}
+  .mb-stock{
+    height:110px;
+    background:repeating-linear-gradient(45deg,#cfd8dc,#cfd8dc 10px,#eceff1 10px,#eceff1 20px);
+    display:flex;align-items:center;justify-content:center;
+    color:#78909c;font-size:11px;font-family:Arial,sans-serif;margin-bottom:10px;
+  }
+  .mb-footer{background:#003366;color:#cfe0f0;font-size:11px;padding:14px;text-align:center;}
+
+  /* ===== AFTER mock page styling — energized coral/teal palette, distinct from the doula case study ===== */
+  .mock-after-page{font-family:'Work Sans',sans-serif;color:#182C2A;}
+  .ma-nav{display:flex;justify-content:space-between;align-items:center;padding:18px 30px;background:#FFF6EE;}
+  .ma-logo{font-family:'Fraunces',serif;font-size:20px;color:#182C2A;}
+  .ma-nav-links{display:flex;gap:26px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#0E6E62;}
+  .ma-hero{background:linear-gradient(135deg,#FF6B4A 0%, #FFC857 100%);padding:60px 30px;display:grid;grid-template-columns:1.15fr 0.85fr;gap:30px;align-items:center;}
+  .ma-hero-text{text-align:left;}
+  .ma-hero span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#182C2A;font-weight:700;}
+  .ma-hero h1{font-family:'Fraunces',serif;font-size:44px;color:#182C2A;margin:14px 0 16px;max-width:9ch;line-height:1.05;}
+  .ma-hero p{font-size:15px;color:#182C2A;opacity:.82;max-width:340px;margin-bottom:22px;}
+  .ma-hero-image{
+    height:230px;
+    border-radius:18px;
+    background-image:url('https://images.unsplash.com/photo-1565793244233-3d09028aad47?fm=jpg&q=70&w=800&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center 30%;
+    box-shadow:0 18px 34px rgba(14,110,98,0.28);
+  }
+  .ma-btn{display:inline-block;background:#182C2A;color:#FFF6EE;padding:12px 26px;border-radius:30px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;}
+  .ma-features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:50px 30px;background:#FFF6EE;}
+  .ma-feature{border-top:3px solid #FF6B4A;padding-top:14px;}
+  .ma-feature h3{font-family:'Fraunces',serif;font-size:18px;margin:0 0 6px;color:#182C2A;}
+  .ma-feature p{font-size:12px;color:#4A5A58;margin:0;}
+  .ma-cta{background:#0E6E62;color:#FFF6EE;text-align:center;padding:44px 30px;}
+  .ma-cta h2{font-family:'Fraunces',serif;font-size:24px;margin-bottom:14px;color:#FFF6EE;}
+  .ma-cta .ma-btn{background:#FF6B4A;color:#182C2A;}
+
+  .seam{
+    width:1px;
+    background:linear-gradient(to bottom, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+    position:relative;
+    margin-top:2.2rem;
+  }
+  .seam::before{
+    content:"→";
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    background:var(--gold);color:var(--ink);width:28px;height:28px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:0.85rem;
+  }
+
+  .rationale-list{display:grid;gap:1.6rem;}
+  .rationale-item{display:grid;grid-template-columns:2.4rem 1fr;gap:1.2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--line);}
+  .rationale-item:last-child{border-bottom:none;}
+  .rationale-item .mark{font-family:'Fraunces', serif;font-style:italic;color:var(--gold);font-size:1.3rem;}
+  .rationale-item h4{font-family:'Work Sans', sans-serif;font-weight:600;font-size:0.98rem;margin-bottom:0.35rem;}
+  .rationale-item p{color:var(--ink-soft);font-size:0.92rem;margin:0;}
+
+  footer{padding:4rem 6vw 5rem;text-align:center;}
+  footer p{color:var(--ink-soft);font-size:0.88rem;max-width:44ch;margin:0.6rem auto 0;}
+  footer .display{font-size:1.3rem;text-align:center;margin:0 auto;letter-spacing:normal;}
+
+  @media (max-width:900px){
+    .mock-compare{grid-template-columns:1fr;}
+    .seam{width:100%;height:1px;background:linear-gradient(to right, transparent, var(--gold) 20%, var(--gold) 80%, transparent);margin:1rem 0;}
+    .seam::before{content:"↓";}
+    .browser-viewport{height:280px;}
+    .scaled-page{transform:scale(0.28);}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <p class="eyebrow">Web design case study · Spec project</p>
+  <h1>Turning a cluttered clinical site into one that feels as capable as the care itself</h1>
+  <p class="sub">Independent pelvic floor practices are often run by one or two highly skilled clinicians with no time (or budget) left over for their website. Here's a representative redesign showing how much a first impression changes when the visuals catch up to the expertise.</p>
+  <div class="hero-meta">
+    <div><span>Source</span>A composite example, built from patterns common to small Wix-built practice websites — not a screenshot of any real business</div>
+    <div><span>Focus</span>Wix redesign, visual design &amp; brand voice</div>
+  </div>
+  <p class="disclosure">This is an unsolicited spec project, not client work. The "before" reflects common issues I see in small practice websites built on page builders like Wix — created to demonstrate my approach to visual and written clarity for women's health professionals.</p>
+</div>
+
+<section>
+  <div class="section-head"><span class="num">01</span><h2>What tends to go wrong</h2></div>
+  <p class="lead">Most independent practices like this are excellent clinically and self-built (or DIY-template-built) online. A few patterns show up again and again.</p>
+  <div class="diagnosis">
+    <div>
+      <h3>Clashing visuals</h3>
+      <p>Mismatched fonts, bright clashing colors, and stretched clip-art make a highly credentialed practice look amateur before a word is even read.</p>
+    </div>
+    <div>
+      <h3>No visual hierarchy</h3>
+      <p>Everything is bolded, boxed, or banner'd at once, so nothing actually stands out and the eye doesn't know where to land.</p>
+    </div>
+    <div>
+      <h3>Generic clinical stock imagery</h3>
+      <p>Sterile anatomy diagrams and stock photos read cold, when the actual experience of care is warm and personal.</p>
+    </div>
+    <div>
+      <h3>Buried or absent CTA</h3>
+      <p>Booking info gets lost in a cluttered sidebar instead of leading the page.</p>
+    </div>
+  </div>
+</section>
+
+<div class="compare-wrap">
+  <section>
+    <div class="section-head"><span class="num">02</span><h2>Before &amp; after</h2></div>
+    <p class="lead">Same practice, same expertise — just visually organized so a new patient trusts what they're looking at in the first three seconds.</p>
+    <div class="mock-compare">
+      <div class="mock-col before">
+        <div class="mock-label"><span class="dot"></span>Typical "before"</div>
+        <div class="browser-frame">
+          <div class="browser-bar"><span></span><span></span><span></span></div>
+          <div class="browser-viewport">
+            <div class="scaled-page mock-before-page">
+              <div class="mb-topbar">CALL NOW: (555) 019-2837 &nbsp;|&nbsp; FAX: (555) 019-2838</div>
+              <div class="mb-nav">
+                <div class="mb-logo">Women's Wellness &amp; Pelvic Care!!</div>
+                <a href="#">Home</a><a href="#">About Us</a><a href="#">Our Services</a>
+                <a href="#">Insurance</a><a href="#">FAQs</a><a href="#">Patient Forms</a><a href="#">Blog</a><a href="#">Contact</a>
+              </div>
+              <div class="mb-banner">★ NOW ACCEPTING NEW PATIENTS ★ SE HABLA ESPAÑOL ★ TELEHEALTH AVAILABLE ★</div>
+              <div class="mb-hero">
+                <h1>Welcome to Our Practice!</h1>
+                <p>We are dedicated to providing comprehensive, compassionate, and individualized pelvic floor physical therapy services to women of all ages in a comfortable and caring environment where you will feel right at home.</p>
+                <a class="mb-btn">Click Here</a>
+              </div>
+              <div class="mb-body">
+                <div>
+                  <h2>About Our Practice</h2>
+                  <div class="mb-stock">[ stock anatomy diagram ]</div>
+                  <p>Founded in 2009, our practice has been serving the community for over a decade with a wide range of services designed to help patients of all backgrounds and needs achieve better pelvic health outcomes through evidence-based individualized treatment plans tailored specifically...</p>
+                  <p>We accept most major insurance plans and offer flexible scheduling options including early morning and evening appointments to accommodate your busy schedule and lifestyle needs.</p>
+                </div>
+                <div class="mb-sidebar">
+                  <h3>Quick Links</h3>
+                  <ul>
+                    <li>Patient Portal Login</li>
+                    <li>Download Intake PDF (12 pages)</li>
+                    <li>Insurance We Accept</li>
+                    <li>Office Hours</li>
+                    <li>Meet Our Staff</li>
+                    <li>Read Our Reviews</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mb-footer">© 2013–2026 Women's Wellness &amp; Pelvic Care. All Rights Reserved. Site best viewed in 1024x768.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="seam"></div>
+
+      <div class="mock-col after">
+        <div class="mock-label"><span class="dot"></span>Redesign</div>
+        <div class="browser-frame">
+          <div class="browser-bar"><span></span><span></span><span></span></div>
+          <div class="browser-viewport">
+            <div class="scaled-page mock-after-page">
+              <div class="ma-nav">
+                <div class="ma-logo">Bloom Pelvic Health</div>
+                <div class="ma-nav-links"><span>About</span><span>Services</span><span>FAQ</span><span>Contact</span></div>
+              </div>
+              <div class="ma-hero">
+                <div class="ma-hero-text">
+                  <span>PELVIC FLOOR PHYSICAL THERAPY</span>
+                  <h1>Feel like yourself again.</h1>
+                  <p>One-on-one, judgment-free care for pelvic pain, prolapse, and postpartum recovery — from a therapist who actually has the time to listen.</p>
+                  <a class="ma-btn">Book a Free Consult</a>
+                </div>
+                <div class="ma-hero-image"></div>
+              </div>
+              <div class="ma-features">
+                <div class="ma-feature"><h3>Individualized care</h3><p>60-minute sessions, one therapist, one plan built around you.</p></div>
+                <div class="ma-feature"><h3>A calming space</h3><p>Private rooms designed to feel nothing like a hospital.</p></div>
+                <div class="ma-feature"><h3>Real results</h3><p>Clear milestones so you always know what progress looks like.</p></div>
+              </div>
+              <div class="ma-cta">
+                <h2>Ready to talk to someone who gets it?</h2>
+                <a class="ma-btn">Schedule Your First Visit</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section>
+  <div class="section-head"><span class="num">03</span><h2>Why these changes</h2></div>
+  <div class="rationale-list">
+    <div class="rationale-item">
+      <span class="mark">a</span>
+      <div>
+        <h4>One palette, used with restraint</h4>
+        <p>The original leans on primary colors and clashing gradients that fight for attention. A muted, warm palette signals calm before anyone reads a word — which matters more here than almost any other specialty.</p>
+      </div>
+    </div>
+    <div class="rationale-item">
+      <span class="mark">b</span>
+      <div>
+        <h4>One typeface pairing, not five</h4>
+        <p>Consistent type (one serif for warmth, one clean sans for clarity) reads as credible. Mixed decorative fonts and all-caps banners read as unprofessional, even when the clinical care behind them is excellent.</p>
+      </div>
+    </div>
+    <div class="rationale-item">
+      <span class="mark">c</span>
+      <div>
+        <h4>Replaced clinical stock imagery with tone, not diagrams</h4>
+        <p>Sterile anatomy graphics and generic stock photography make an intimate, personal service feel clinical and impersonal. Warm color and honest copy do more to build trust than another pelvis diagram.</p>
+      </div>
+    </div>
+    <div class="rationale-item">
+      <span class="mark">d</span>
+      <div>
+        <h4>One CTA, repeated, never buried</h4>
+        <p>The original scatters "Click Here," a patient portal link, and a 12-page PDF across a cluttered sidebar. The redesign gives a new patient exactly one clear next step, in the same place, every time.</p>
+      </div>
+    </div>
+    <div class="rationale-item">
+      <span class="mark">e</span>
+      <div>
+        <h4>Built for the platform they already use</h4>
+        <p>Most small practices like this are already on Wix, and there's no need to talk them into a full platform migration. This redesign is scoped to be rebuilt directly inside their existing Wix backend — new sections, custom CSS, and cleaned-up structure — so it's a realistic project, not a fantasy rebuild from scratch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="display">Curious what this could look like for your practice?</p>
+  <p>I write and design for birth and women's health professionals who want their expertise to come through as clearly online as it does in the room with their patients.</p>
+</footer>
+
+</body>
+</html>
