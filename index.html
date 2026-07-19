@@ -42,7 +42,7 @@ nav a{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:7
 .nav-button:hover{background:white;}
 
 /* ==========================
-HERO — shorter banner across the top, gradient overlay kept
+HERO — Mobile-friendly with better face positioning
 ========================== */
 .hero{
 position:relative;
@@ -52,7 +52,7 @@ display:flex;
 align-items:center;
 }
 .hero-image{position:absolute;inset:0;z-index:0;}
-.hero-image img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.hero-image img{width:100%;height:100%;object-fit:cover;object-position:center top;}
 .hero-overlay{
 position:absolute;
 inset:0;
@@ -185,7 +185,8 @@ header{padding:22px 0;}
 .logo img{height:48px;}
 nav a:not(.nav-button){display:none;}
 .hero{height:auto;padding:50px 0 60px;}
-.hero-overlay{background:rgba(251,248,245,.78);}
+.hero-overlay{background:linear-gradient(90deg, rgba(251,248,245,.92) 0%, rgba(251,248,245,.85) 50%, rgba(251,248,245,.4) 85%, rgba(251,248,245,0) 100%);}
+.hero-image img{object-position:center 20%;}
 .hero h1{font-size:40px;}
 .hero p{font-size:18px;}
 section{padding:90px 0;}
@@ -268,7 +269,7 @@ h2{font-size:46px;margin-bottom:42px;}
 <h3>Copywriting Beyond Your Website</h3>
 <p>Because every client touchpoint shapes your reputation.</p>
 <p>From newsletters and patient education to brochures, workshops, referral materials, and new service launches, I'll help make sure every client-facing piece feels consistent, professional, and aligned with the care you provide.</p>
-<a href="mailto:kitjoly@gmail.com">Explore the service →</a>
+<a href="mailto:kitjoly@gmail.com">Ask more →</a>
 </div>
 <div class="service fade">
 <div class="service-number">03</div>
@@ -276,7 +277,7 @@ h2{font-size:46px;margin-bottom:42px;}
 <p>Your business doesn't stop evolving—and neither should your marketing.</p>
 <p>New services. Website updates. Patient resources. Emails. Workshop materials. Community events. Writing has a way of piling up.</p>
 <p>My role is simple: to take as much of that work off your plate as possible, helping you keep your marketing confident, current, and consistent while you stay focused on caring for your clients.</p>
-<a href="mailto:kitjoly@gmail.com">Explore the service →</a>
+<a href="mailto:kitjoly@gmail.com">Inquire →</a>
 </div>
 </div>
 </div>
